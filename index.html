@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mi Proyecto</title>
+  <link rel="stylesheet" href="fenixnova.bundle.css" />
+</head>
+<body class="bg-body text-main">
+
+<header class="navbar bg-surface text-dark">
+  <div class="container d-flex justify-between align-center pt-4 pb-4">
+
+    <!-- 🔥 Marca FenixNova -->
+    <div class="navbar-brand d-flex align-center gap-sm">
+      <svg width="32" height="32" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" style="border-radius: var(--radius-base);">
+        <path d="M32 4c4 6 10 10 16 12-6 2-10 6-12 12 6-2 10-6 12-12 4 10 0 20-8 28-4 4-8 6-12 6s-8-2-12-6c-8-8-12-18-8-28 2 6 6 10 12 12-2-6-6-10-12-12 6-2 12-6 16-12z" fill="url(#phoenixGradient)"/>
+        <defs>
+          <linearGradient id="phoenixGradient" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#e63946"/>
+            <stop offset="0.5" stop-color="#fb8500"/>
+            <stop offset="1" stop-color="#ffb703"/>
+          </linearGradient>
+        </defs>
+      </svg>
+      <span class="text-primary is-bold">FenixNova</span>
+    </div>
+
+    <!-- 🧭 Botonera horizontal -->
+    <ul class="navbar-links d-flex gap-md list-none m-0 p-0">
+      <li><a href="#" class="nav-link text-dark">Inicio</a></li>
+      <li><a href="#" class="nav-link text-dark">Servicios</a></li>
+      <li><a href="#" class="nav-link text-dark">Contacto</a></li>
+    </ul>
+
+  </div>
+</header>
+
+  <!-- 🟨 Sección principal -->
+  <main class="main">
+    <section class="hero hero-plain bg-surface text-dark">
+      <div class="container pt-10 pb-10">
+        <h2 class="text-heading-l text-center">Catálogo Editorial</h2>
+        <p class="text-muted text-center">Explora nuestras obras poéticas y técnicas</p>
+      </div>
+    </section>
+
+    <section class="content container spacing-xl">
+      <h3 class="text-heading-m">Sobre nosotros</h3>
+      <p class="text-body">Este proyecto celebra la creatividad, la pedagogía y la poesía latinoamericana.</p>
+    </section>
+  </main>
+
+  <!-- ⚫ Pie de página -->
+  <footer class="footer bg-dark text-light pt-6 pb-6">
+    <div class="container text-center">
+      <p class="text-small">© 2025 Arturo Vásquez. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+  <script type="text/javascript" src="dist/routing.general.min.js"></script>
+  <script type="text/javascript">
+    routing.listen();
+    // 📦 Archivo: routing.general.js
+
+    routing.root('/');
+
+    routing.rescue(() => {
+      document.getElementById('app').innerHTML = `
+        <section class="container pt-10 pb-10 text-center">
+          <h1 class="text-heading-xl text-danger">404 | Página no encontrada</h1>
+          <p class="text-muted">La ruta solicitada no existe</p>
+        </section>
+      `;
+    });
+
+    routing.map('/').to(() => {
+      document.getElementById('app').innerHTML = `
+        <section class="hero hero-plain bg-surface text-dark">
+          <div class="container pt-10 pb-10 text-center">
+            <h1 class="text-heading-xl">Bienvenido a FenixNova</h1>
+            <p class="text-muted">Explora nuestro universo editorial</p>
+          </div>
+        </section>
+      `;
+    });
+
+    routing.map('/catalogo').to(() => {
+      document.getElementById('app').innerHTML = `
+        <section class="container pt-10 pb-10">
+          <h2 class="text-heading-l">Catálogo Editorial</h2>
+          <p class="text-body">Obras poéticas, técnicas y pedagógicas</p>
+        </section>
+      `;
+    });
+
+    routing.map('/autores').to(() => {
+      document.getElementById('app').innerHTML = `
+        <section class="container pt-10 pb-10">
+          <h2 class="text-heading-l">Autores</h2>
+          <p class="text-body">Conoce a los creadores detrás de cada obra</p>
+        </section>
+      `;
+    });
+
+    routing.map('/contacto').to(() => {
+      document.getElementById('app').innerHTML = `
+        <section class="container pt-10 pb-10">
+          <h2 class="text-heading-l">Contacto</h2>
+          <p class="text-body">Escríbenos para colaboraciones o consultas</p>
+        </section>
+      `;
+    });
+  </script>
+</body>
+</html>

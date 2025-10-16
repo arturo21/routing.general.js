@@ -9,7 +9,7 @@ var config = module.exports = {
 	devtool: 'source-map',
 	mode:"production",
 	entry: {
-		app: ["./routing.general.js"]
+		app: ["./index.js"]
 	},
 	output: {
 		path: path.resolve(__dirname, 'dist'),
@@ -73,6 +73,6 @@ var config = module.exports = {
     extensions: ['.js', '.jsx']
   },
   externals: {
-    reactv: 'reactv' // indica que reactv está disponible globalmente
+    routing: 'routing' // indica que reactv está disponible globalmente
   }
 };
